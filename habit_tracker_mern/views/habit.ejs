@@ -1,0 +1,52 @@
+<link rel="stylesheet" href="/css/habit.css" />
+
+<div>
+  <h1 class="heading-name"><% = habit.habit_namer%></h1>
+</div>
+
+<div class="date-container">
+  <div>
+    From: 
+    <input type ="date" name ="state-date" id ="state-date" class = "date-picker" required = True>
+  </div>
+
+  <div>
+    TO : 
+    <input type = "date" name = "end-date" class =  "date-picker" id ="end_date"required>
+
+
+  </div>
+  <button id=" filter" ><i class = "fas fa-search> </i></button>
+
+</div>
+
+<div class="key">
+  <span style = 'color:gray;'>Unmarked</span>
+
+  <span style = 'color:blue;'>Marked</span>
+  <span style =  "color:red;">Not Done</span>
+
+  </div>
+
+
+  <div class = "habit-container">
+    <ul id = "item-list">
+      <% habit.habit_items.forEach(function(item){ %>
+        <li class = "item">
+          <div class = "item-name">
+            <span><%= item.item_name %></span>
+          </div>
+          <div class = "item-state">
+            <span><%= item.item_state %></span>
+          </div>
+          <div class = "item-date">
+            <span><%= item.item_date %></span>
+          </div>
+        </li>
+      <% }); %>
+    </ul>
+  </div>
+
+<script src = "/js/moment.js"></script>
+
+<script src = "/js/habit.js"></script>
